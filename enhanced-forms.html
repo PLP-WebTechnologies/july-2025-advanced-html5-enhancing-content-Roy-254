@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enhanced HTML5 Form and Structured Content</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+      }
+      header,
+      footer {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      section {
+        margin-bottom: 30px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #333;
+        padding: 8px;
+        text-align: left;
+      }
+      fieldset {
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      legend {
+        font-weight: bold;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 6px;
+        margin-top: 4px;
+      }
+      .readonly-note {
+        font-size: 0.9em;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sample Page #1</h1>
+      <p>Demonstrating lists, tables, media, and an accessible HTML5 form</p>
+    </header>
+
+    <main>
+      <!-- Section with lists and media -->
+      <section>
+        <h2>Features at a Glance</h2>
+        <ul>
+          <li>Organized content with semantic HTML5 structure</li>
+          <li>Accessible lists and tables for clarity</li>
+          <li>Embedded media content via semantic tags</li>
+          <li>Robust, HTML5-only form with validation</li>
+        </ul>
+
+        <figure>
+          <img
+            src="https://via.placeholder.com/400x200"
+            alt="Sample placeholder image"
+          />
+          <figcaption>
+            A placeholder image illustrating media embedding using
+            <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>.
+          </figcaption>
+        </figure>
+
+        <h3>Comparison Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Content Type</th>
+              <th>HTML Element</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Heading</td>
+              <!--greater and lesser sign had to be written in test form not to clash with syntax-->
+              <td>&lt;h1&gt; … &lt;h6&gt;</td>
+              <td>Defines document structure</td>
+            </tr>
+            <tr>
+              <td>List</td>
+              <td>&lt;ul&gt; / &lt;ol&gt;</td>
+              <td>Presents grouped items</td>
+            </tr>
+            <tr>
+              <td>Media</td>
+              <td>&lt;figure&gt; + &lt;img&gt;</td>
+              <td>Displays images with captions</td>
+            </tr>
+            <tr>
+              <td>Form</td>
+              <td>&lt;form&gt;</td>
+              <td>Collects user input</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section with an enhanced form -->
+      <section>
+        <h2>Contact & Registration Form</h2>
+        <form action="#" method="post" autocomplete="on">
+          <!-- Personal Information group -->
+          <fieldset>
+            <legend>Personal Information</legend>
+
+            <label for="fullname">Full Name:</label>
+            <input
+              type="text"
+              id="fullname"
+              name="fullname"
+              placeholder="e.g., Jane Doe"
+              required
+              minlength="3"
+            />
+
+            <label for="email">Email Address:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required />
+          </fieldset>
+
+          <!-- Account Details section -->
+          <fieldset>
+            <legend>Account Details</legend>
+
+            <label for="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="At least 5 characters"
+              required
+              minlength="5"
+              maxlength="15"
+              pattern="[A-Za-z0-9_]+"
+              title="Use letters, numbers, or underscores only"
+            />
+
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              minlength="8"
+            />
+
+            <label for="profile-url">Profile URL:</label>
+            <input
+              type="url"
+              id="profile-url"
+              name="profile-url"
+              placeholder="https://"
+              autocomplete="on"
+            />
+          </fieldset>
+
+          <!-- Preferences section -->
+          <fieldset>
+            <legend>Preferences</legend>
+
+            <label for="age">Your Age:</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="0"
+              max="120"
+              required
+            />
+
+            <label for="color">Favorite Color:</label>
+            <input type="color" id="color" name="color" />
+
+            <label for="newsletter">
+              <input
+                type="checkbox"
+                id="newsletter"
+                name="newsletter"
+                value="yes"
+                checked
+              />
+              Subscribe to our newsletter
+            </label>
+          </fieldset>
+
+          <!-- Comments area -->
+          <fieldset>
+            <legend>Additional Comments</legend>
+
+            <label for="comments">Comments:</label>
+            <textarea
+              id="comments"
+              name="comments"
+              placeholder="Your feedback here..."
+              minlength="10"
+              rows="4"
+            ></textarea>
+          </fieldset>
+
+          <!-- Readonly info -->
+          <fieldset>
+            <legend>Read-only Notice</legend>
+            <label for="ref-code">Reference Code:</label>
+            <input
+              type="text"
+              id="ref-code"
+              name="ref-code"
+              value="REF2025"
+              readonly
+            />
+            <p class="readonly-note">(Cannot be edited)</p>
+          </fieldset>
+
+          <button type="submit">Submit</button>
+          <button type="reset">Clear</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Enhanced form</p>
+    </footer>
+  </body>
+</html>
